@@ -129,8 +129,8 @@ def ListaObtinutaDinListaInitiala(lst : list[int]):
     cmmdc_toata_lista = CelMaiMareCmmdcAlNumerelorPoz(lst)
     for i in lst:
         if i < 0:
-            numar_invers = str(i)
-            numar_invers = numar_invers[1:]
+            numar_invers = str(i)#convertesc numarul din int in string
+            numar_invers = numar_invers[1:] #elimin '-'-ul din numar
             numar_invers = numar_invers[::-1] #daca numarul este negativ inversez cifrele
             numar_invers = int("-" + numar_invers) #adaug un zero in numarul inversat ca sa il fac din nou negativ
             lista_finala.append(int(numar_invers))
@@ -148,8 +148,16 @@ def test_ListaObtinutaDinListaInitiala():
 
 test_ListaObtinutaDinListaInitiala()
     
+def Meniu():
+    print("1. Citirea unei liste cu numere intregi.")
+    print("2. Afisarea tuturor numerelor negative nenule din lista.")
+    print("3. Afisarea celui mai mic numar care are ultima cifra egala cu o cifra citita de la tastatura.")
+    print("4. Afisarea tuturor numerelor superprime din lista.")
+    print("5. Inlocuirea numerelor strict pozitive din lista cu cmmdc si numerele negative cu inversele lor.")
+    print("x. Program incheiat.")
 
 def main():
+    Meniu()
     lst = []
     is_running = True
     while is_running:
@@ -164,7 +172,7 @@ def main():
             numar = int(input("Scrie numarul: "))
             print(f"Cel mai mic numar cu ultima cifra {numar}: {afisareCelMaiMicNumar(lst,numar)}")
         elif command == '4':
-            print("Ai ales optiunea 4: Afisarea tuturor numerelor superprime din lista")
+            print("Ai ales optiunea 4: Afisarea tuturor numerelor superprime din lista.")
             print(f"Numerele superprime din lista {lst} sunt: {AfisareNumereSuperprime(lst)}")
         elif command == '5':
             print("Ai ales optiunea 5: Inlocuirea numerelor strict pozitive din lista cu cmmdc si numerele negative cu inversele lor.")
