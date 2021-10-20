@@ -1,4 +1,3 @@
-from math import sqrt #imi extrag functia sqrt pentru a afla radicalul unui numar
 
 #1 citirea
 def citire_lista():
@@ -54,7 +53,7 @@ def is_prime(numar : int):
     if numar == 2:
         return True
     
-    for i in range(3, int(sqrt(numar)) + 1):
+    for i in range(3, numar//2 + 1):
         if numar % i == 0:
             return False
     
